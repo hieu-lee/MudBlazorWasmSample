@@ -14,20 +14,14 @@
 
         <MudAppBarSpacer />
         <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
-            <MudTooltip Text="Toggle light/dark theme">
-                <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
-            </MudTooltip>
-            <MudTooltip Text="Toggle right-to-left/left-to-right">
-                <MudIconButton Icon="@Icons.Material.Filled.FormatTextdirectionRToL" Color="Color.Inherit" OnClick="@((e) => RightToLeftToggle())" />
+            <MudTooltip Text="Hieu Lee">
+                <a target="_blank" href="https://github.com/hieu-lee"><img src="github.png" /></a>
             </MudTooltip>
         </MudHidden>
         <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true">
-            <MudMenu Icon="@Icons.Filled.Settings" Color="Color.Inherit" Dense="true" Direction="Direction.Right" OffsetY="true">
-                <div class="px-2">
-                    <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
-                    <MudIconButton Icon="@Icons.Material.Filled.FormatTextdirectionRToL" Color="Color.Inherit" OnClick="@((e) => RightToLeftToggle())" />
-                </div>
-            </MudMenu>
+            <MudTooltip Text="Hieu Lee">
+                <a target="_blank" href="https://github.com/hieu-lee"><img src="github.png" /></a>
+            </MudTooltip>
         </MudHidden>
     </MudAppBar>
 
@@ -62,7 +56,6 @@
 
 @code
 {
-
     private bool _drawerOpen = false;
     private bool _rightToLeft = false;
     private string searchValue = string.Empty;
@@ -72,29 +65,10 @@
         _drawerOpen = !_drawerOpen;
     }
 
-    private void RightToLeftToggle()
-    {
-        _rightToLeft = !_rightToLeft;
-    }
-
     protected override void OnInitialized()
     {
         _currentTheme = _defaultTheme;
 
-    }
-
-    #region Theme
-
-    private void DarkMode()
-    {
-        if (_currentTheme == _defaultTheme)
-        {
-            _currentTheme = _darkTheme;
-        }
-        else
-        {
-            _currentTheme = _defaultTheme;
-        }
     }
 
     private MudTheme _currentTheme = new MudTheme();
@@ -106,28 +80,5 @@
                 Black = "#272c34"
             }
         };
-    private readonly MudTheme _darkTheme =
-        new MudTheme()
-        {
-            Palette = new Palette()
-            {
-                Black = "#27272f",
-                Background = "#32333d",
-                BackgroundGrey = "#27272f",
-                Surface = "#373740",
-                DrawerBackground = "#27272f",
-                DrawerText = "rgba(255,255,255, 0.50)",
-                AppbarBackground = "#27272f",
-                AppbarText = "rgba(255,255,255, 0.70)",
-                TextPrimary = "rgba(255,255,255, 0.70)",
-                TextSecondary = "rgba(255,255,255, 0.50)",
-                ActionDefault = "#adadb1",
-                ActionDisabled = "rgba(255,255,255, 0.26)",
-                ActionDisabledBackground = "rgba(255,255,255, 0.12)",
-                DrawerIcon = "rgba(255,255,255, 0.50)"
-            }
-        };
-
-    #endregion
 
 }
